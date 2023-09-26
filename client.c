@@ -5,12 +5,13 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
-#define SERVER_IP "127.0.0.1" // Define the IP address of the server
-#define PORT 12345  // Define the port number of the server
+#define SERVER_COUNT 3 // Define the number of server
 
 int main() {
     int client_socket;
     struct sockaddr_in server_addr;
+    char buffer[1024];
+    int num;
 
     // From this line, the process is about socket creation.
     client_socket = socket(AF_INET, SOCK_STREAM, 0);

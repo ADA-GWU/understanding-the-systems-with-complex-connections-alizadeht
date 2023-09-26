@@ -7,15 +7,15 @@
 #include <netinet/in.h>
 #include <time.h>
 
-#define PORT 12345  // Define the port number for the server
+#define SERVER_COUNT 3 // Define the number of server
 
-int main() {
-    int server_socket, client_socket;
-    struct sockaddr_in server_addr, client_addr;
-    socklen_t client_addr_len = sizeof(client_addr);
+void handle_client(int client_socket) {
+    char buffer[1024];
+    int num;
 
-    server_socket = socket(AF_INET, SOCK_STREAM, 0);
-    if (server_socket == -1) {
-        perror("Socket creation failed"); // It gives an error message when problem occurs.
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <port>\n", argv[0]);
         exit(EXIT_FAILURE);
     }

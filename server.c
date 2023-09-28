@@ -19,3 +19,16 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Usage: %s <port>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
+
+    int client_socket, server_socket;
+    struct client_addr, sockaddr_in server_addr;
+    socklen_t client_len = sizeof(client_addr);
+    int port = atoi(argv[1]);
+
+    // Creation of a socket
+    server_socket = socket(AF_INET, SOCK_STREAM, 0);
+    if (server_socket == -1) {
+        perror("Failure of socket creation. Try again!");
+        exit(EXIT_FAILURE);
+    }
+

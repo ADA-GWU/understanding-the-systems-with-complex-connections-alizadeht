@@ -23,7 +23,8 @@ After that, write the number you want in the client window, and the system will 
 
 Testing of server-client application:
 
-<img width="1439" alt="image" src="https://github.com/ADA-GWU/understanding-the-systems-with-complex-connections-alizadeht/assets/78111301/1616f7bc-13ab-480d-8e74-8da5453a6ad0">
+<img width="1138" alt="image" src="https://github.com/ADA-GWU/understanding-the-systems-with-complex-connections-alizadeht/assets/78111301/d7fbb447-4dac-422e-8421-d83a5ece167e">
+
 
 
     

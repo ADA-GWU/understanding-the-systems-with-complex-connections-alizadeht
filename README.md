@@ -14,20 +14,19 @@ e.g: cd /Users/turalalizada/Desktop/understanding-the-systems-with-complex-conne
 You can compile the code and run the application on any OS.
 
 1.Server1 -> gcc -o server1 server.c
-
-              ./server1 12345 (starting server1 in port 12345)
+             ./server1 12345 
+             (starting server1 in port 12345)
               
 2.Server2 -> gcc -o server2 server.c
-
-              ./server2 12346 (starting server2 in port 12346)
+             ./server2 12346 
+             (starting server2 in port 12346)
               
 3.Server3 -> gcc -o server3 server.c
-
-              ./server3 12347 (starting server3 in port 12347)
+             ./server3 12347 
+             (starting server3 in port 12347)
               
 4.Client -> gcc -o client client.c
-
-              ./client 
+            ./client 
               
 First, start servers, then client.
 

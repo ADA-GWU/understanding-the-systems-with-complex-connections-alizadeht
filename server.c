@@ -50,7 +50,42 @@ int main(int argc, char *argv[]) {
     // Creation of a socket
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
     if (server_socket == -1) {
-        perror("Failure of socket creation. Try again!");
+        perror("Failure of socket creation. Try again!"); // Error message
         exit(EXIT_FAILURE);
     }
+    // Configuration of server address
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_addr.s_addr = INADDR_ANY;
+    server_addr.sin_port = htons(port);
+
+    if (bind(server_socket, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {
+        perror("Socket binding is failed"); // Error message
+        exit(EXIT_FAILURE);
+    }
+
+    if (listen(server_socket, 3) == -1) {
+        perror("Server listening is failed"); // Error message
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Server is currently on port %d\n", port); // If connection to the port is successful, Print this message.
+
+    while (1) {
+        client_socket = accept(server_socket, (struct sockaddr *)&client_addr, &client_len);
+        if (client_socket == -1) {
+            perror("Client connection is not accepted. Try again!"); // Error message
+            continue;
+        }
+
+        // Thread creation for handling our client
+        pthread_t tid;
+        if (pthread_create(&tid, NULL, handle_client, &client_socket) != 0) {
+            perror("Thread creation is failed. Try again!"); // Error message if creation is failed
+            close(client_socket);
+        }
+    }
+    close(server_socket);
+
+    return 0;
+}
 

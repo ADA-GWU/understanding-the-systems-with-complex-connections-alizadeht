@@ -42,8 +42,8 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    int client_socket, server_socket;
-    struct client_addr, sockaddr_in server_addr;
+    int server_socket, client_socket;
+    struct sockaddr_in server_addr, client_addr;
     socklen_t client_len = sizeof(client_addr);
     int port = atoi(argv[1]);
 

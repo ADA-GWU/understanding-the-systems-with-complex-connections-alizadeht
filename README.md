@@ -4,15 +4,21 @@ Hello, this is the first assignment for the Principles of Distributed Systems. T
 
 To run the code: open the terminal(4 window, 1 for client, 3 for server app)
 For each window, write the code below:
+
 1.Server1 -> gcc -o server1 server.c
               ./server1 12345 (starting server1 in port 12345)
+              
 1.Server2 -> gcc -o server2 server.c
               ./server2 12346 (starting server2 in port 12346)
+              
 1.Server1 -> gcc -o server1 server.c
               ./server3 12347 (starting server3 in port 12347)
+              
 1.Client -> gcc -o client client.c
               ./client 
+              
 First, start servers, then client.
+
 After that, write the number you want in the client window, and the system will respond (double number) in a random server.
 
     

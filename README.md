@@ -2,8 +2,16 @@
 
 Hello, this is the first assignment for the Principles of Distributed Systems. The concept is about Understanding the systems with complex connections. Therefore, I write a client and server software (two separate applications) that interact through the sockets. Thus, I need to start 3 server applications manually.  The client application shall require an input number: when entered, one of the server applications  shall respond with double the entered number.
 
+How to install: download as a zip file from GitHub.
+
 To run the code: open the terminal(4 window, 1 for client, 3 for server app)
 For each window, write the code below:
+
+P.S: cd filepath is a must!
+
+e.g: cd /Users/turalalizada/Desktop/understanding-the-systems-with-complex-connections-alizadeht
+
+You can compile the code and run the application on any OS.
 
 1.Server1 -> gcc -o server1 server.c
               ./server1 12345 (starting server1 in port 12345)

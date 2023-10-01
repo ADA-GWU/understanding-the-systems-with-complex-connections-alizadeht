@@ -39,3 +39,20 @@ int main() {
         close(client_socket);
         continue; 
     }
+    printf("Connected to a random server on port %d\n", ntohs(server_addrs[selected_server].sin_port));
+
+    printf("Enter a number (or 'e' to exit): ");
+    if (scanf("%s", input) != 1) {
+        break; // Exit the loop if input is not readable
+    }
+
+    if (strcmp(input, "e") == 0) {
+        // This gives us the opportunity to exit by using the "e" key. Type e and press enter if you want to quit.
+        break;
+    }
+
+    if (sscanf(input, "%lld", &num) != 1) {
+        printf("Incorrect input. Please enter a number correctly or write 'e' then press enter if you want to quit.\n"); // When there is no number as a input, print this message.
+        close(client_socket);
+            ontinue; 
+    }

@@ -16,13 +16,13 @@ You can compile the code and run the application on any OS.
 1.Server1 -> gcc -o server1 server.c
               ./server1 12345 (starting server1 in port 12345)
               
-1.Server2 -> gcc -o server2 server.c
+2.Server2 -> gcc -o server2 server.c
               ./server2 12346 (starting server2 in port 12346)
               
-1.Server3 -> gcc -o server3 server.c
+3.Server3 -> gcc -o server3 server.c
               ./server3 12347 (starting server3 in port 12347)
               
-1.Client -> gcc -o client client.c
+4.Client -> gcc -o client client.c
               ./client 
               
 First, start servers, then client.

@@ -21,4 +21,9 @@ First, start servers, then client.
 
 After that, write the number you want in the client window, and the system will respond (double number) in a random server.
 
+Testing of server-client application:
+
+<img width="1439" alt="image" src="https://github.com/ADA-GWU/understanding-the-systems-with-complex-connections-alizadeht/assets/78111301/1616f7bc-13ab-480d-8e74-8da5453a6ad0">
+
+
     

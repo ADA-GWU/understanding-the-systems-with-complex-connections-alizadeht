@@ -8,14 +8,14 @@
 #include <time.h>
 #include <pthread.h>
 
-#define SERVER_COUNT 3 // Define the number of server
+#define SERVER_COUNT 3 // Number of server instances
 
 // By using thread function, handle client communication
 void *handle_client(void *client_socket_ptr) {
     int client_socket = *(int *)client_socket_ptr;
     char buffer[1024];
     long long num; // Used a long long data type because of large numbers
-    
+
     while (1) {
         ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer), 0);
         if (bytes_received <= 0) {
@@ -26,7 +26,7 @@ void *handle_client(void *client_socket_ptr) {
         sscanf(buffer, "%lld", &num);
         num *= 2;
 
-        printf("Server: Input- %lld, Output(Double number)- %lld\n", num / 2, num); // That is the message(output) displayed in random server page with numbers
+        printf("Server: Input - %lld, Output(Double number) - %lld\n", num / 2, num); // That is the message(output) displayed in random server page with numbers
 
         snprintf(buffer, sizeof(buffer), "%lld", num);
         send(client_socket, buffer, strlen(buffer), 0);
@@ -47,13 +47,14 @@ int main(int argc, char *argv[]) {
     socklen_t client_len = sizeof(client_addr);
     int port = atoi(argv[1]);
 
-    // Creation of a socket
+    // Creation of socket
     server_socket = socket(AF_INET, SOCK_STREAM, 0);
     if (server_socket == -1) {
         perror("Failure of socket creation. Try again!"); // Error message
         exit(EXIT_FAILURE);
     }
-    // Configuration of server address
+
+    // Configure server address
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
     server_addr.sin_port = htons(port);
@@ -88,4 +89,3 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
-

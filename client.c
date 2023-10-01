@@ -6,15 +6,13 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define SERVER_COUNT 3 // Define the number of server
-#define MIN_PORT 1024   // Minimum port number that can be entered
-#define MAX_PORT 49151  // Maximum port number that can be entered
+#define SERVER_COUNT 3 // Number of server instances
 
 int main() {
-    char input[1024];
-    char buffer[1024];
     struct sockaddr_in server_addr;
+    char buffer[1024];
     long long num; 
+    char input[1024];
 
     while (1) {
         int client_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -23,14 +21,14 @@ int main() {
             exit(EXIT_FAILURE);
         }
 
-        // Configuration of server addresses and ports
+        // Configure server addresses and ports
         struct sockaddr_in server_addrs[SERVER_COUNT];
-        int ports[SERVER_COUNT] = {12345, 12346, 12347}; // defining the port numbers
+        int ports[SERVER_COUNT] = {12345, 12346, 12347}; // Port numbers
 
         for (int i = 0; i < SERVER_COUNT; i++) {
             server_addrs[i].sin_family = AF_INET;
             server_addrs[i].sin_port = htons(ports[i]);
-            server_addrs[i].sin_addr.s_addr = inet_addr("127.0.0.1"); //server address
+            server_addrs[i].sin_addr.s_addr = inet_addr("127.0.0.1");
         }
 
         // Connect to a random server
@@ -40,6 +38,7 @@ int main() {
             close(client_socket);
             continue; 
         }
+
         printf("Connected to a random server on port %d\n", ntohs(server_addrs[selected_server].sin_port));
 
         printf("Enter a number (or 'e' to exit): ");
@@ -57,6 +56,7 @@ int main() {
             close(client_socket);
             continue; 
         }
+
         snprintf(buffer, sizeof(buffer), "%lld", num);
         send(client_socket, buffer, strlen(buffer), 0);
 
@@ -66,5 +66,5 @@ int main() {
         close(client_socket); 
     }
 
-        return 0;
+    return 0;
 }

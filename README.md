@@ -46,7 +46,7 @@ gcc -o client client.c
               
 First, start servers, then client.
 
-After that, write the number you want in the client window, and the system will respond (double number) in a random server.
+After that, write the number you want in the client window, and the system will respond (double number) in a random server. If you want to quit, just write "e" and press enter.
 
 Testing of server-client application:
 

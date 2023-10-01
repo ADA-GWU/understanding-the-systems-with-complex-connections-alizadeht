@@ -3,9 +3,12 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include <sys/socket.h>
+#include <time.h>
+#include <stdbool.h>
 
 #define SERVER_COUNT 3 // Define the number of server
+#define MIN_PORT 1024   // Minimum port number that can be entered
+#define MAX_PORT 49151  // Maximum port number that can be entered
 
 int main() {
     int client_socket;
